@@ -5,7 +5,7 @@ from turtle import *
 from random import randint
 
 # Shutting down program
-def ukoncit_program():
+def program_shutdown():
     turtle.bye()
 
 # Window setup
@@ -13,15 +13,15 @@ turtle.Screen()
 
 # Key shortcut for Shutting down program
 turtle.listen()
-turtle.onkey(ukoncit_program, "Escape")
+turtle.onkey(program_shutdown, "Escape")
 
 # Turtle speed on max
 speed(0)
 penup()
-goto(-140, 140)
+goto(-210, 140)
 
 # Racing track
-for step in range(16):
+for step in range(21):
     write(step, align ="center")
     right(90)
 
@@ -37,26 +37,26 @@ for step in range(16):
     forward(20)
 
 # Function for moving the turtles to the starting position
-def priprav_hrace(turtle_obj, color, position):
+def prepare_players(turtle_obj, color, position):
     turtle_obj.color(color)
     turtle_obj.shape("turtle")
     turtle_obj.speed(3)
     turtle_obj.penup()
-    turtle_obj.goto(-160, position)
+    turtle_obj.goto(-230, position)
     turtle_obj.pendown()
 
 # Players setup
 player_1 = Turtle()
-priprav_hrace(player_1, "red", 100)
+prepare_players(player_1, "red", 100)
 
 player_2 = Turtle()
-priprav_hrace(player_2, "blue", 70)
+prepare_players(player_2, "blue", 70)
 
 player_3 = Turtle()
-priprav_hrace(player_3, "green", 40)
+prepare_players(player_3, "green", 40)
 
 player_4 = Turtle()
-priprav_hrace(player_4, "orange", 10)
+prepare_players(player_4, "orange", 10)
 
 
 # turtles rotate 360°(Warm up)
@@ -73,7 +73,7 @@ for turn in range(10):
     player_4.left(36)
 
 # Finish line
-finish_line = 144
+finish_line = 173
 
 # Function for first winner
 def chceck_winner():
@@ -101,6 +101,7 @@ while not winner: # Race continues until a winner is found
 # Announcement of the win
 penup()
 goto(-110, -60) # L/R U/D
+hideturtle()
 color(winner_color) # Set text color to the winners color
 write(f"{winner} turtle wins!", font=("Arial", 20, "bold"))
 
